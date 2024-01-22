@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using TodoApp.DataService;
+using TodoApp.Pages;
 
 namespace TodoApp
 {
@@ -17,6 +18,7 @@ namespace TodoApp
                 });
 
             builder.Services.AddSingleton<IRestService, RestService>();
+            builder.Services.AddTransient<ManageToDo>();
 
 #if DEBUG
 		builder.Logging.AddDebug();

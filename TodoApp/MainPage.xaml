@@ -4,15 +4,27 @@
              x:Class="TodoApp.MainPage">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text=" Add To Do" Clicked="ToolbarItem_Clicked"/>
+        <ToolbarItem Text=" Add To Do"  Clicked="ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
 
-    <CollectionView x:Name="collectionview" SelectionMode="Single" SelectionChanged="onSelectionChanged">
+
+    <CollectionView x:Name="collectionview" 
+                    SelectionMode="Single" 
+                   SelectionChanged="collectionview_SelectionChanged"
+                    Margin="30">
+
+        <CollectionView.ItemsLayout>
+            <LinearItemsLayout Orientation="Vertical" ItemSpacing="20"/>
+        </CollectionView.ItemsLayout>
+        
+        
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <Label Text="{Binding }" FontSize="Medium"/>
+                <Label Text="{Binding TodoName}" FontSize="Medium"/>
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>
+    
+    
 
 </ContentPage>
